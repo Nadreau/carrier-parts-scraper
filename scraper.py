@@ -1,152 +1,59 @@
 #!/usr/bin/env python3
-"""
-Carrier Enterprise Parts Scraper - Scrapes 78K+ HVAC parts
-Usage: python scraper.py [--compare|--resume|--full|--visible]
-Requirements: pip install playwright requests && playwright install chromium
-"""
-import json, sys, time, re, argparse
-from datetime import datetime
-from pathlib import Path
-
-try:
-          from playwright.sync_api import sync_playwright
-          HAS_PLAYWRIGHT = True
-except ImportError:
-          HAS_PLAYWRIGHT = False
+import json
+import time
+from playwright.sync_api import sync_playwright
 
 BASE_URL = "https://www.carrierenterprise.com"
 PARTS_CATEGORY_ID = "1423187165617"
 SEARCH_URL = f"{BASE_URL}/search?f=%7B%22category%22%3A%22{PARTS_CATEGORY_ID}%22%7D&inventory=all&page={{page}}&query=*"
-ITEMS_PER_PAGE = 48
-DATA_DIR = Path(__file__).parent / "data"
-DATA_DIR.mkdir(exist_ok=True)
-STATE_FILE = DATA_DIR / "scrape_state.json"
 
-def get_scrape_filename(date=None):
-          return DATA_DIR / f"parts_scrape_{(date or datetime.now()).strftime('%Y-%m-%d')}.json"
+def scrape_all_products():
+    products = {}
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        page_num = 1
+        while True:
+            url = SEARCH_URL.format(page=page_num)
+            print(f"Scraping page {page_num}...")
+            page.goto(url, wait_until="networkidle")
+            time.sleep(3)
+            items = page.query_selector_all('[class*="collectionProduct-gridItem"]')
+            if not items:
+                print(f"No items found on page {page_num}, stopping")
+                break
+            for item in items:
+                try:
+                    text = item.inner_text()
+                    link_el = item.query_selector('a[href*="/product/"]')
+                    href = link_el.get_attribute("href") if link_el else ""
+                    lines = text.split("\n")
+                    name = lines[0] if lines else ""
+                    item_code = ""
+                    mfr_code = ""
+                    for line in lines:
+                        if line.startswith("Item:"):
+                            item_code = line.replace("Item:", "").strip()
+                        elif line.startswith("MFR:"):
+                            mfr_code = line.replace("MFR:", "").strip()
+                    if item_code:
+                        products[item_code] = {
+                            "name": name,
+                            "item_code": item_code,
+                            "mfr_code": mfr_code,
+                            "url": href
+                        }
+                except Exception as e:
+                    print(f"Error: {e}")
+            print(f"Page {page_num}: {len(items)} items, Total: {len(products)}")
+            page_num += 1
+            if len(items) < 48:
+                break
+        browser.close()
+    with open("products.json", "w") as f:
+        json.dump(list(products.values()), f, indent=2)
+    print(f"Done! Scraped {len(products)} products")
+    return products
 
-def get_latest_scrape():
-          scrapes = sorted(DATA_DIR.glob("parts_scrape_*.json"), reverse=True)
-          return scrapes[0] if scrapes else None
-
-def get_previous_scrape():
-          scrapes = sorted(DATA_DIR.glob("parts_scrape_*.json"), reverse=True)
-          return scrapes[1] if len(scrapes) > 1 else None
-
-class CarrierPartsScraper:
-          def __init__(self, headless=True):
-                        self.products, self.headless, self.total_pages, self.start_page = {}, headless, 0, 1
-
-          def load_state(self):
-                        if STATE_FILE.exists():
-                                          with open(STATE_FILE) as f: state = json.load(f)
-                                                            self.products = state.get('products', {})
-                                          self.start_page = state.get('last_page', 1) + 1
-                                          self.total_pages = state.get('total_pages', 0)
-                                          print(f"Resuming from page {self.start_page} with {len(self.products)} products")
-
-                    def save_state(self, page):
-                                  with open(STATE_FILE, 'w') as f:
-                                                    json.dump({'last_page': page, 'total_pages': self.total_pages, 'products': self.products}, f)
-
-                              def clear_state(self):
-                                            if STATE_FILE.exists(): STATE_FILE.unlink()
-
-                                        def scrape(self, resume=False):
-                                                      if not HAS_PLAYWRIGHT:
-                                                                        print("Error: playwright not installed. Run: pip install playwright && playwright install chromium")
-                                                                        return None
-                                                                    if resume: self.load_state()
-                                                                                  with sync_playwright() as p:
-                                                                                                    browser = p.chromium.launch(headless=self.headless)
-                                                                                                    page = browser.new_page()
-                                                                                                    page.set_default_timeout(60000)
-                                                                                                    if self.start_page == 1:
-                                                                                                                          page.goto(SEARCH_URL.format(page=1), wait_until='networkidle')
-                                                                                                                          time.sleep(2)
-                                                                                                                          match = re.search(r'of ([\d,]+) total', page.inner_text('body'))
-                                                                                                                          if match:
-                                                                                                                                                    total = int(match.group(1).replace(',', ''))
-                                                                                                                                                    self.total_pages = (total + ITEMS_PER_PAGE - 1) // ITEMS_PER_PAGE
-                                                                                                                                                    print(f"Found {total:,} parts across {self.total_pages} pages")
-                                                                                                          else: self.total_pages = 1630
-            for pg in range(self.start_page, self.total_pages + 1):
-                                  try:
-                                                            print(f"Page {pg}/{self.total_pages} ({len(self.products):,} parts)")
-                    if pg > 1:
-                                                  page.goto(SEARCH_URL.format(page=pg), wait_until='networkidle')
-                        time.sleep(1)
-                    prods = page.evaluate('''() => {
-                                            const seen = new Set();
-                                                                    const products = [];
-                                                                                            document.querySelectorAll('a[href*="/product/"]').forEach(function(link) {
-                                                                                                                        const href = link.getAttribute('href');
-                                                                                                                                                    if (!href.startsWith('/product/') || seen.has(href)) return;
-                                                                                                                                                                                seen.add(href);
-                                                                                                                                                                                                            const li = link.closest('li');
-                                                                                                                                                                                                                                        if (!li) return;
-                                                                                                                                                                                                                                                                    const text = li.innerText;
-                                                                                                                                                                                                                                                                                                const lines = text.split('\\n');
-                                                                                                                                                                                                                                                                                                                            const itemLine = lines.find(function(l) { return l.indexOf('Item:') === 0; });
-                                                                                                                                                                                                                                                                                                                                                        if (!itemLine) return;
-                                                                                                                                                                                                                                                                                                                                                                                    const mfrLine = lines.find(function(l) { return l.indexOf('MFR:') === 0; });
-                                                                                                                                                                                                                                                                                                                                                                                                                const img = li.querySelector('img');
-                                                                                                                                                                                                                                                                                                                                                                                                                                            products.push({
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            item_code: itemLine.replace('Item:', '').trim(),
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            mfr_code: mfrLine ? mfrLine.replace('MFR:', '').trim() : null,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            name: img ? img.alt : lines[0],
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            url: 'https://www.carrierenterprise.com' + href
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        });
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                });
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        return products;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }''')
-                    for prod in prods:
-                                                  if prod['item_code'] not in self.products:
-                                                                                    prod['first_seen'] = datetime.now().isoformat()
-                        self.products[prod['item_code']] = prod
-                    if pg % 10 == 0: self.save_state(pg)
-except Exception as e:
-                    print(f"Error page {pg}: {e}")
-                    self.save_state(pg - 1)
-            browser.close()
-            self.clear_state()
-            return self.products
-
-    def save_scrape(self, products, filename=None):
-                  if not filename: filename = get_scrape_filename()
-                                with open(filename, 'w') as f:
-                                                  json.dump({'scrape_date': datetime.now().isoformat(), 'total_products': len(products), 'products': products}, f, indent=2)
-        print(f"Saved {len(products):,} products to {filename}")
-
-def compare_scrapes(curr, prev):
-          with open(curr) as f: c = json.load(f)
-                    with open(prev) as f: p = json.load(f)
-                              ci, pi = set(c['products'].keys()), set(p['products'].keys())
-    return {'new': ci - pi, 'removed': pi - ci, 'curr_total': len(ci), 'prev_total': len(pi)}
-
-def main():
-          parser = argparse.ArgumentParser(description='Carrier Enterprise Parts Scraper')
-    parser.add_argument('--compare', action='store_true', help='Compare last two scrapes')
-    parser.add_argument('--resume', action='store_true', help='Resume interrupted scrape')
-    parser.add_argument('--full', action='store_true', help='Force full re-scrape')
-    parser.add_argument('--visible', action='store_true', help='Show browser window')
-    args = parser.parse_args()
-
-    if args.compare:
-                  c, p = get_latest_scrape(), get_previous_scrape()
-        if c and p:
-                          r = compare_scrapes(c, p)
-            print(f"New: {len(r['new'])}, Removed: {len(r['removed'])}")
-            for code in list(r['new'])[:10]: print(f"  + {code}")
-else: print("Need at least 2 scrapes to compare")
-else:
-        f = get_scrape_filename()
-        if f.exists() and not args.full and not args.resume:
-                          print(f"Scrape exists: {f}. Use --full to re-scrape or --resume to continue")
-            return
-        scraper = CarrierPartsScraper(headless=not args.visible)
-        products = scraper.scrape(resume=args.resume)
-        if products: scraper.save_scrape(products)
-
-if __name__ == '__main__':
-          main()
+if __name__ == "__main__":
+    scrape_all_products()

@@ -1,0 +1,118 @@
+============================================================
+CARRIER ENTERPRISE SCRAPE REPORT - 2026-01-18
+============================================================
+
+Total products scraped: 4935
+Previous count: 1
+Net change: +4934
+
+NEW PRODUCTS ADDED: 4935
+----------------------------------------
+  + 2.5 Ton Up to 16 SEER2 Residential Air Conditioner Condensin
+    Item: GA5SAN43000W | Category: Residential - Air Conditioners
+  + 1.5 Ton Up to 16 SEER2 Residential Air Conditioner Condensin
+    Item: GA5SAN41800W | Category: Residential - Air Conditioners
+  + 3 Ton Up to 16.5 SEER2 Air Conditioner Condensing Unit (R-45
+    Item: GA5SAN53600W | Category: Residential - Air Conditioners
+  + 2.5 Ton Up to 16.5 SEER2 Air Conditioner Condensing Unit (R-
+    Item: GA5SAN53000W | Category: Residential - Air Conditioners
+  + 2 Ton Up to 17 SEER2 Air Conditioner Condensing Unit (R-454B
+    Item: GA5SAN52400W | Category: Residential - Air Conditioners
+  + 4 Ton Up to 15.5 SEER2 Air Conditioner Condensing Unit (R-45
+    Item: GA5SAN54800W | Category: Residential - Air Conditioners
+  + 3.5 Ton Up to 16.5 SEER2 Air Conditioner Condensing Unit (R-
+    Item: GA5SAN54200W | Category: Residential - Air Conditioners
+  + 5 Ton Up to 16 SEER2 Air Conditioner Condensing Unit (R-454B
+    Item: GA5SAN56000W | Category: Residential - Air Conditioners
+  + Carrier® Comfort™ - 2 Ton Up to 16 SEER2 Air Conditioner Con
+    Item: 24SCA424N003 | Category: Residential - Air Conditioners
+  + Carrier® Comfort™ - 3 Ton Up to 16.5 SEER2 Residential Air C
+    Item: 26SCA536W003 | Category: Residential - Air Conditioners
+  + Carrier® Comfort™ - 4 Ton Up to 15.5 SEER2 Residential Air C
+    Item: 26SCA548W003 | Category: Residential - Air Conditioners
+  + Carrier® Performance™ - 2 Ton Up to 16 SEER2 Residential Air
+    Item: 24SPA624W003 | Category: Residential - Air Conditioners
+  + Carrier® Comfort™ - 2.5 Ton Up to 16.5 SEER2 Residential Air
+    Item: 26SCA530W003 | Category: Residential - Air Conditioners
+  + 2 Ton Up to 16 SEER2 Air Conditioner Condenser Unit R-410A
+    Item: PA4SAN42400N | Category: Residential - Air Conditioners
+  + Carrier® Comfort™ - 2.5 Ton Up to 16 SEER2 Air Conditioner C
+    Item: 24SCA430N003 | Category: Residential - Air Conditioners
+  + Carrier® Performance™ - 3 Ton Up to 16 SEER2 Residential Air
+    Item: 24SPA636W003 | Category: Residential - Air Conditioners
+  + 3 Ton Up to 16.5 SEER2 Air Conditioner Condenser Unit (R-454
+    Item: PA5SAN53600W | Category: Residential - Air Conditioners
+  + Carrier® Comfort™ - 2 Ton Up to 17 SEER2 Residential Air Con
+    Item: 26SCA524W003 | Category: Residential - Air Conditioners
+  + Carrier® Comfort™ - 5 Ton Up to 16 SEER2 Residential Air Con
+    Item: 26SCA560W003 | Category: Residential - Air Conditioners
+  + Carrier® Comfort™ - 3.5 Ton Up to 16.5 SEER2 Residential Air
+    Item: 26SCA542W003 | Category: Residential - Air Conditioners
+  + Carrier® Comfort™ - 3 Ton Up to 15 SEER2 Air Conditioner Con
+    Item: 24SCA436N003 | Category: Residential - Air Conditioners
+  + 1.5 Ton Up to 17 SEER2 Air Conditioner Condensing Unit (R-45
+    Item: GA5SAN51800W | Category: Residential - Air Conditioners
+  + 2 Ton Up to 16 SEER2 Air Conditioner Condenser Unit R-410A
+    Item: GA4SAN42400N | Category: Residential - Air Conditioners
+  + 4 Ton Up to 15.5 SEER2 Air Conditioner Condenser Unit (R-454
+    Item: PA5SAN54800W | Category: Residential - Air Conditioners
+  + 2.5 Ton Up to 16 SEER2 Air Conditioner Condenser Unit R-410A
+    Item: PA4SAN43000N | Category: Residential - Air Conditioners
+  + Carrier® Comfort™ - 1.5 Ton Up to 16 SEER2 Air Conditioner C
+    Item: 24SCA418N003 | Category: Residential - Air Conditioners
+  + 2 Ton Up to 17 SEER2 Air Conditioner Condenser Unit (R-454B)
+    Item: PA5SAN52400W | Category: Residential - Air Conditioners
+  + 3 Ton Up to 15 SEER2 Air Conditioner Condenser Unit R-410A
+    Item: PA4SAN43600N | Category: Residential - Air Conditioners
+  + 2.5 Ton Up to 16.5 SEER2 Air Conditioner Condenser Unit (R-4
+    Item: PA5SAN53000W | Category: Residential - Air Conditioners
+  + Bryant® Legacy™ - 2 Ton Up to 16 SEER2 Air Conditioner Conde
+    Item: 114SAN02400N | Category: Residential - Air Conditioners
+  + 5 Ton Up to 16 SEER2 Air Conditioner Condenser Unit (R-454B)
+    Item: PA5SAN56000W | Category: Residential - Air Conditioners
+  + Carrier® Performance™ - 4 Ton 18 SEER2 2-Stage Air Condition
+    Item: 26TPA848W003 | Category: Residential - Air Conditioners
+  + Bryant® Legacy™ - 2.5 Ton Up to 16 SEER2 Air Conditioner Con
+    Item: 114SAN03000N | Category: Residential - Air Conditioners
+  + Carrier® Performance™ - 3 Ton 18 SEER2 2-Stage Air Condition
+    Item: 26TPA836W003 | Category: Residential - Air Conditioners
+  + 2.5 Ton Up to 16 SEER2 Air Conditioner Condenser Unit R-410A
+    Item: GA4SAN43000N | Category: Residential - Air Conditioners
+  + Bryant® Legacy™ - 3 Ton Up to 15 SEER2 Air Conditioner Conde
+    Item: 114SAN03600N | Category: Residential - Air Conditioners
+  + 1.5 Ton Up to 16 SEER2 Air Conditioner Condenser Unit R-410A
+    Item: PA4SAN41800N | Category: Residential - Air Conditioners
+  + 3.5 Ton Up to 16.5 SEER2 Air Conditioner Condenser Unit (R-4
+    Item: PA5SAN54200W | Category: Residential - Air Conditioners
+  + 3 Ton Up to 16.5 SEER2 Air Conditioner Condensing Unit (R-45
+    Item: GA5SAN53602W | Category: Residential - Air Conditioners
+  + Carrier® Comfort™ - 2 Ton Air Conditioner Condensing Unit R-
+    Item: 24SCB424N003 | Category: Residential - Air Conditioners
+  + Carrier® Performance™ - 3 Ton Up to 16.5 SEER2 Residential A
+    Item: 26SPA636W003 | Category: Residential - Air Conditioners
+  + Carrier® Performance™ - 3.5 Ton Up to 15 SEER2 Residential A
+    Item: 24SPA642W003 | Category: Residential - Air Conditioners
+  + Carrier® Comfort™ - 3 Ton 14 SEER2 Residential Air Condition
+    Item: 26SCA436N003 | Category: Residential - Air Conditioners
+  + Payne® - 2 Ton Air Conditioner Condensing Unit R-410A
+    Item: PA4SBN42400N | Category: Residential - Air Conditioners
+  + Carrier® Performance™ - 4 Ton Up to 15 SEER2 Residential Air
+    Item: 24SPA648W003 | Category: Residential - Air Conditioners
+  + Carrier® Comfort™ - 2 Ton 14 SEER2 Residential Air Condition
+    Item: 26SCA424N003 | Category: Residential - Air Conditioners
+  + Carrier® Performance™ - 5 Ton 18 SEER2 2-Stage Air Condition
+    Item: 26TPA860W003 | Category: Residential - Air Conditioners
+  + 3 Ton Up to 15 SEER2 Air Conditioner Condenser Unit R-410A
+    Item: GA4SAN43600N | Category: Residential - Air Conditioners
+  + Carrier® Comfort™ - 2.5 Ton 14 SEER2 Residential Air Conditi
+    Item: 26SCA430N003 | Category: Residential - Air Conditioners
+  + Bryant® Legacy™ - 3 Ton Up to 16.5 SEER2 Residential Air Con
+    Item: 135SAN03600W | Category: Residential - Air Conditioners
+  ... and 4885 more
+
+PRODUCTS REMOVED: 1
+----------------------------------------
+  - Test Product
+    Item: TEST123 | Category: Test
+
+============================================================

@@ -397,16 +397,13 @@ def add_to_notion(products, date_str):
                     ]
                 },
                 "Category": {
-                    "select": {"name": product.get('category', 'Unknown')}
+                    "multi_select": [{"name": product.get('category', 'Unknown')}]
                 },
                 "URL": {
                     "url": product.get('url', '')
                 },
                 "Date Added": {
                     "date": {"start": date_str}
-                },
-                "Action": {
-                    "checkbox": False
                 }
             }
         }

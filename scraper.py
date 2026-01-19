@@ -2,6 +2,9 @@
 import json
 import time
 import os
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 from playwright.sync_api import sync_playwright
 
@@ -167,6 +170,169 @@ def generate_report(changes, new_count, date_str):
     report.append("=" * 60)
     return "\n".join(report)
 
+
+def generate_html_email(changes, new_count, date_str):
+    """Generate a nicely formatted HTML email for new products"""
+    added = changes.get('added', [])
+    removed = changes.get('removed', [])
+    old_count = changes.get('old_count', 0)
+
+    # Group new products by category
+    by_category = {}
+    for p in added:
+        cat = p.get('category', 'Unknown')
+        if cat not in by_category:
+            by_category[cat] = []
+        by_category[cat].append(p)
+
+    html = f"""
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {{ font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }}
+        h1 {{ color: #0066cc; border-bottom: 2px solid #0066cc; padding-bottom: 10px; }}
+        h2 {{ color: #333; margin-top: 30px; }}
+        h3 {{ color: #0066cc; margin-top: 20px; border-left: 4px solid #0066cc; padding-left: 10px; }}
+        .summary {{ background: #f5f5f5; padding: 15px; border-radius: 8px; margin: 20px 0; }}
+        .summary-item {{ display: inline-block; margin-right: 30px; }}
+        .number {{ font-size: 24px; font-weight: bold; color: #0066cc; }}
+        .label {{ color: #666; font-size: 12px; }}
+        .product {{ background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 12px; margin: 10px 0; }}
+        .product-name {{ font-weight: bold; color: #333; margin-bottom: 5px; }}
+        .product-details {{ color: #666; font-size: 13px; }}
+        .product a {{ color: #0066cc; text-decoration: none; }}
+        .product a:hover {{ text-decoration: underline; }}
+        .badge {{ display: inline-block; background: #28a745; color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 10px; }}
+        .badge-removed {{ background: #dc3545; }}
+        .category-count {{ color: #666; font-size: 14px; }}
+        .footer {{ margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #999; font-size: 12px; }}
+    </style>
+</head>
+<body>
+    <h1>🔧 Carrier Enterprise Weekly Report</h1>
+    <p style="color: #666;">Report generated on {date_str}</p>
+
+    <div class="summary">
+        <div class="summary-item">
+            <div class="number">{new_count:,}</div>
+            <div class="label">Total Products</div>
+        </div>
+        <div class="summary-item">
+            <div class="number" style="color: #28a745;">+{len(added):,}</div>
+            <div class="label">New This Week</div>
+        </div>
+        <div class="summary-item">
+            <div class="number" style="color: #dc3545;">-{len(removed):,}</div>
+            <div class="label">Removed</div>
+        </div>
+        <div class="summary-item">
+            <div class="number">{new_count - old_count:+,}</div>
+            <div class="label">Net Change</div>
+        </div>
+    </div>
+"""
+
+    if added:
+        html += f"""
+    <h2>✨ New Products Added <span class="badge">{len(added)}</span></h2>
+"""
+        # Show products grouped by category
+        for category in sorted(by_category.keys()):
+            products = by_category[category]
+            html += f"""
+    <h3>{category} <span class="category-count">({len(products)} new)</span></h3>
+"""
+            # Limit to 10 products per category in email, with "and X more" message
+            display_products = products[:10]
+            for p in display_products:
+                html += f"""
+    <div class="product">
+        <div class="product-name"><a href="{p['url']}">{p['name']}</a></div>
+        <div class="product-details">
+            Item: <strong>{p['item_code']}</strong> | MFR: {p['mfr_code']}
+        </div>
+    </div>
+"""
+            if len(products) > 10:
+                html += f"""
+    <p style="color: #666; font-style: italic;">... and {len(products) - 10} more in {category}</p>
+"""
+    else:
+        html += """
+    <h2>No New Products This Week</h2>
+    <p>No new products were added since the last scrape.</p>
+"""
+
+    if removed:
+        html += f"""
+    <h2>🗑️ Products Removed <span class="badge badge-removed">{len(removed)}</span></h2>
+"""
+        for p in removed[:20]:
+            html += f"""
+    <div class="product" style="border-color: #dc3545;">
+        <div class="product-name" style="color: #dc3545;">{p['name']}</div>
+        <div class="product-details">
+            Item: <strong>{p['item_code']}</strong> | Category: {p['category']}
+        </div>
+    </div>
+"""
+        if len(removed) > 20:
+            html += f"""
+    <p style="color: #666; font-style: italic;">... and {len(removed) - 20} more removed</p>
+"""
+
+    html += """
+    <div class="footer">
+        <p>This report was automatically generated by the Carrier Enterprise Product Scraper.</p>
+        <p>Data source: <a href="https://www.carrierenterprise.com/part-finder">carrierenterprise.com/part-finder</a></p>
+    </div>
+</body>
+</html>
+"""
+    return html
+
+
+def send_email_report(changes, new_count, date_str, text_report):
+    """Send email report of new products"""
+    email_user = os.environ.get('EMAIL_USER')
+    email_pass = os.environ.get('EMAIL_PASS')
+    email_to = os.environ.get('EMAIL_TO', email_user)
+
+    if not email_user or not email_pass:
+        print("Email credentials not configured. Skipping email notification.")
+        print("Set EMAIL_USER and EMAIL_PASS environment variables to enable email.")
+        return False
+
+    try:
+        msg = MIMEMultipart('alternative')
+        msg['Subject'] = f"🔧 Carrier Enterprise Report - {len(changes.get('added', []))} New Products ({date_str})"
+        msg['From'] = email_user
+        msg['To'] = email_to
+
+        # Plain text version
+        text_part = MIMEText(text_report, 'plain')
+        msg.attach(text_part)
+
+        # HTML version
+        html_content = generate_html_email(changes, new_count, date_str)
+        html_part = MIMEText(html_content, 'html')
+        msg.attach(html_part)
+
+        # Send via Gmail SMTP
+        print(f"Sending email report to {email_to}...")
+        with smtplib.SMTP('smtp.gmail.com', 587) as server:
+            server.starttls()
+            server.login(email_user, email_pass)
+            server.send_message(msg)
+
+        print(f"Email sent successfully to {email_to}")
+        return True
+    except Exception as e:
+        print(f"Failed to send email: {e}")
+        return False
+
+
 def scrape_all_products():
     products = []
     with sync_playwright() as p:
@@ -207,7 +373,10 @@ def scrape_all_products():
     print(f"Report: {report_filename}")
     print(f"{'='*50}")
     print(report)
-    
+
+    # Send email notification
+    send_email_report(changes, len(products), date_str, report)
+
     return products
 
 if __name__ == "__main__":

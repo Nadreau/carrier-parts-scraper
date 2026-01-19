@@ -11,6 +11,7 @@ from playwright.sync_api import sync_playwright
 
 # Check for test mode
 TEST_MODE = "--test" in sys.argv
+TEST_EMAIL = "--test-email" in sys.argv
 
 BASE_URL = "https://www.carrierenterprise.com"
 
@@ -413,14 +414,91 @@ def scrape_all_products():
 
     return products
 
+def test_email_with_fake_products():
+    """Test the email functionality with simulated new products"""
+    print("\n" + "="*50)
+    print("EMAIL TEST MODE")
+    print("Simulating new products to test email formatting")
+    print("="*50 + "\n")
+
+    date_str = datetime.now().strftime("%Y-%m-%d")
+
+    # Load existing products if available
+    if os.path.exists("products.json"):
+        with open("products.json", "r") as f:
+            existing_products = json.load(f)
+        total_count = len(existing_products)
+    else:
+        existing_products = []
+        total_count = 100  # Fake count
+
+    # Create fake new products to simulate what the email would look like
+    fake_new_products = [
+        {
+            "name": "TEST - New 3 Ton Heat Pump Unit (THIS IS A TEST)",
+            "item_code": "TEST-HP-3TON",
+            "mfr_code": "TEST-MFR-001",
+            "url": "https://www.carrierenterprise.com/product/test1",
+            "category": "Residential - Heat Pumps"
+        },
+        {
+            "name": "TEST - New Commercial Rooftop AC 10 Ton (THIS IS A TEST)",
+            "item_code": "TEST-RTU-10T",
+            "mfr_code": "TEST-MFR-002",
+            "url": "https://www.carrierenterprise.com/product/test2",
+            "category": "Commercial - Packaged Rooftops"
+        },
+        {
+            "name": "TEST - New Gas Furnace 80K BTU (THIS IS A TEST)",
+            "item_code": "TEST-FURN-80K",
+            "mfr_code": "TEST-MFR-003",
+            "url": "https://www.carrierenterprise.com/product/test3",
+            "category": "Residential - Gas Furnaces"
+        },
+    ]
+
+    fake_removed_products = [
+        {
+            "name": "TEST - Discontinued Old Model (THIS IS A TEST)",
+            "item_code": "TEST-OLD-001",
+            "mfr_code": "TEST-OLD-MFR",
+            "url": "https://www.carrierenterprise.com/product/old1",
+            "category": "Residential - Air Conditioners"
+        }
+    ]
+
+    # Create fake changes
+    changes = {
+        "added": fake_new_products,
+        "removed": fake_removed_products,
+        "old_count": total_count - 2
+    }
+
+    # Generate report
+    report = generate_report(changes, total_count, date_str)
+    print(report)
+
+    # Send test email
+    print("\nSending test email...")
+    success = send_email_report(changes, total_count, date_str, report)
+
+    if success:
+        print("\n✓ Test email sent! Check your inbox.")
+        print("  The email shows 3 fake 'new' products and 1 fake 'removed' product.")
+        print("  This is just a test - no actual data was changed.")
+    else:
+        print("\n✗ Email failed. Check your EMAIL_USER and EMAIL_PASS environment variables.")
+
+
 if __name__ == "__main__":
     if "--help" in sys.argv or "-h" in sys.argv:
         print("""
 Carrier Enterprise Product Scraper
 
 Usage:
-  python scraper.py           Full scrape (all categories, all pages)
-  python scraper.py --test    Test mode (2 categories, 1 page each)
+  python scraper.py              Full scrape (all categories, all pages)
+  python scraper.py --test       Quick test (2 categories, 1 page each)
+  python scraper.py --test-email Test email with fake new products (no scraping)
 
 Environment variables for email:
   EMAIL_USER    Gmail address to send from
@@ -430,5 +508,7 @@ Environment variables for email:
 Test mode creates separate files (products_test_*.json) so you can
 run it multiple times to verify the comparison and email work.
 """)
+    elif TEST_EMAIL:
+        test_email_with_fake_products()
     else:
         scrape_all_products()

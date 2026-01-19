@@ -6,16 +6,22 @@ on:
     - cron: '0 0 * * 0'
   workflow_dispatch:
     inputs:
-      test_mode:
-        description: 'Test mode (quick run with 2 categories)'
-        required: false
-        default: false
-        type: boolean
+      mode:
+        description: 'Run mode'
+        required: true
+        default: 'full'
+        type: choice
+        options:
+          - full
+          - test
+          - test-email
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
     timeout-minutes: 120
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -38,8 +44,11 @@ jobs:
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
         run: |
-          if [ "${{ inputs.test_mode }}" == "true" ]; then
+          MODE="${{ inputs.mode }}"
+          if [ "$MODE" == "test" ]; then
             python scraper.py --test
+          elif [ "$MODE" == "test-email" ]; then
+            python scraper.py --test-email
           else
             python scraper.py
           fi
@@ -53,9 +62,10 @@ jobs:
             report*.txt
 
       - name: Commit and push results
+        if: ${{ inputs.mode != 'test-email' }}
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add products.json products_*.json report_*.txt
+          git add products.json products_*.json report_*.txt || true
           git diff --staged --quiet || git commit -m "Weekly scrape: $(date +%Y-%m-%d)"
-          git push
+          git push || true

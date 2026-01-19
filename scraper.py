@@ -4,6 +4,7 @@ import time
 import os
 import sys
 import smtplib
+import requests
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
@@ -12,6 +13,10 @@ from playwright.sync_api import sync_playwright
 # Check for test mode
 TEST_MODE = "--test" in sys.argv
 TEST_EMAIL = "--test-email" in sys.argv
+
+# Notion configuration
+NOTION_API_KEY = os.environ.get('NOTION_API_KEY')
+NOTION_DATABASE_ID = os.environ.get('NOTION_DATABASE_ID', '2ed576a5c12d803a9025f73425b97c19')
 
 BASE_URL = "https://www.carrierenterprise.com"
 
@@ -349,6 +354,88 @@ def send_email_report(changes, new_count, date_str, text_report):
         return False
 
 
+def add_to_notion(products, date_str):
+    """Add new products to Notion database"""
+    if not NOTION_API_KEY:
+        print("Notion API key not configured. Skipping Notion sync.")
+        print("Set NOTION_API_KEY environment variable to enable Notion integration.")
+        return False
+
+    if not products:
+        print("No new products to add to Notion.")
+        return True
+
+    headers = {
+        "Authorization": f"Bearer {NOTION_API_KEY}",
+        "Content-Type": "application/json",
+        "Notion-Version": "2022-06-28"
+    }
+
+    success_count = 0
+    fail_count = 0
+
+    print(f"\nAdding {len(products)} new products to Notion...")
+
+    for product in products:
+        # Build the page properties matching your database schema
+        page_data = {
+            "parent": {"database_id": NOTION_DATABASE_ID},
+            "properties": {
+                "Name": {
+                    "title": [
+                        {"text": {"content": product.get('name', 'Unknown')[:2000]}}
+                    ]
+                },
+                "Item Code": {
+                    "rich_text": [
+                        {"text": {"content": product.get('item_code', '')}}
+                    ]
+                },
+                "MFR Code": {
+                    "rich_text": [
+                        {"text": {"content": product.get('mfr_code', '')}}
+                    ]
+                },
+                "Category": {
+                    "select": {"name": product.get('category', 'Unknown')}
+                },
+                "URL": {
+                    "url": product.get('url', '')
+                },
+                "Date Added": {
+                    "date": {"start": date_str}
+                },
+                "Action": {
+                    "checkbox": False
+                }
+            }
+        }
+
+        try:
+            response = requests.post(
+                "https://api.notion.com/v1/pages",
+                headers=headers,
+                json=page_data
+            )
+
+            if response.status_code == 200:
+                success_count += 1
+            else:
+                fail_count += 1
+                print(f"  Failed to add {product.get('item_code', 'unknown')}: {response.status_code}")
+                if fail_count <= 3:  # Only show first few errors
+                    print(f"    Response: {response.text[:200]}")
+        except Exception as e:
+            fail_count += 1
+            print(f"  Error adding {product.get('item_code', 'unknown')}: {e}")
+
+        # Small delay to avoid rate limiting
+        time.sleep(0.3)
+
+    print(f"Notion sync complete: {success_count} added, {fail_count} failed")
+    return fail_count == 0
+
+
 def scrape_all_products():
     products = []
 
@@ -411,6 +498,10 @@ def scrape_all_products():
 
     # Send email notification
     send_email_report(changes, len(products), date_str, report)
+
+    # Add new products to Notion
+    if changes.get('added'):
+        add_to_notion(changes['added'], date_str)
 
     return products
 
@@ -485,9 +576,17 @@ def test_email_with_fake_products():
     if success:
         print("\n✓ Test email sent! Check your inbox.")
         print("  The email shows 3 fake 'new' products and 1 fake 'removed' product.")
-        print("  This is just a test - no actual data was changed.")
     else:
         print("\n✗ Email failed. Check your EMAIL_USER and EMAIL_PASS environment variables.")
+
+    # Test Notion integration
+    print("\nTesting Notion integration...")
+    notion_success = add_to_notion(fake_new_products, date_str)
+    if notion_success:
+        print("✓ Test products added to Notion! Check your database.")
+        print("  (You can delete the test entries from Notion manually)")
+    else:
+        print("✗ Notion failed. Check NOTION_API_KEY and database permissions.")
 
 
 if __name__ == "__main__":
@@ -498,12 +597,14 @@ Carrier Enterprise Product Scraper
 Usage:
   python scraper.py              Full scrape (all categories, all pages)
   python scraper.py --test       Quick test (2 categories, 1 page each)
-  python scraper.py --test-email Test email with fake new products (no scraping)
+  python scraper.py --test-email Test email & Notion with fake products (no scraping)
 
-Environment variables for email:
-  EMAIL_USER    Gmail address to send from
-  EMAIL_PASS    Gmail App Password (not your regular password!)
-  EMAIL_TO      Recipient email (defaults to EMAIL_USER)
+Environment variables:
+  EMAIL_USER        Gmail address to send from
+  EMAIL_PASS        Gmail App Password (not your regular password!)
+  EMAIL_TO          Recipient email (defaults to EMAIL_USER)
+  NOTION_API_KEY    Notion integration secret
+  NOTION_DATABASE_ID  Notion database ID (optional, has default)
 
 Test mode creates separate files (products_test_*.json) so you can
 run it multiple times to verify the comparison and email work.

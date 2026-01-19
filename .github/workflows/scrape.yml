@@ -2,8 +2,8 @@ name: Scrape Carrier Enterprise
 
 on:
   schedule:
-    # Run every Sunday at midnight UTC
-    - cron: '0 0 * * 0'
+    # Run every Monday at 1pm UTC (9am Eastern / 6am Pacific)
+    - cron: '0 13 * * 1'
   workflow_dispatch:
     inputs:
       mode:
@@ -43,6 +43,7 @@ jobs:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
         run: |
           MODE="${{ inputs.mode }}"
           if [ "$MODE" == "test" ]; then

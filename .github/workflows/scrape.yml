@@ -43,6 +43,7 @@ jobs:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
         run: |
           MODE="${{ inputs.mode }}"
           if [ "$MODE" == "test" ]; then

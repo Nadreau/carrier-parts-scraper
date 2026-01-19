@@ -1,21 +1,61 @@
 name: Scrape Carrier Enterprise
+
 on:
   schedule:
+    # Run every Sunday at midnight UTC
     - cron: '0 0 * * 0'
   workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'Test mode (quick run with 2 categories)'
+        required: false
+        default: false
+        type: boolean
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
+
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history to get previous products files
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install -r requirements.txt
-      - run: playwright install chromium
-      - run: python scraper.py
-      - uses: actions/upload-artifact@v4
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install Playwright browsers
+        run: playwright install chromium
+
+      - name: Run scraper
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: |
+          if [ "${{ inputs.test_mode }}" == "true" ]; then
+            python scraper.py --test
+          else
+            python scraper.py
+          fi
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
         with:
-          name: scrape-results
-          path: '*.json'
+          name: scrape-results-${{ github.run_number }}
+          path: |
+            products*.json
+            report*.txt
+
+      - name: Commit and push results
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add products.json products_*.json report_*.txt
+          git diff --staged --quiet || git commit -m "Weekly scrape: $(date +%Y-%m-%d)"
+          git push

@@ -1,70 +1,101 @@
 # Carrier Enterprise Parts Scraper
 
-Scrapes all 78,000+ HVAC parts from [Carrier Enterprise Part Finder](https://www.carrierenterprise.com/part-finder).
+Scrapes all HVAC parts from [Carrier Enterprise Part Finder](https://www.carrierenterprise.com/part-finder) and sends weekly email reports of new products.
 
 ## Features
 
 - **Full catalog scraping** - Captures all parts with item codes, MFR codes, names, and URLs
-- - **Resume capability** - Saves state every 10 pages, can resume interrupted scrapes
-  - - **Change detection** - Compare scrapes to identify new/removed parts
-    - - **Headless or visible** - Run with or without browser window
-     
-      - ## Installation
-     
-      - ```bash
-        # Clone the repository
-        git clone https://github.com/Nadreau/carrier-parts-scraper.git
-        cd carrier-parts-scraper
+- **Change detection** - Compares scrapes to identify new/removed parts
+- **Email notifications** - Sends nicely formatted HTML email reports of new products
+- **Weekly automation** - GitHub Actions workflow runs every Sunday
+- **Progress saving** - Saves state after each category for reliability
 
-        # Install dependencies
-        pip install playwright requests
+## Installation
 
-        # Install browser
-        playwright install chromium
-        ```
+```bash
+# Clone the repository
+git clone https://github.com/Nadreau/carrier-parts-scraper.git
+cd carrier-parts-scraper
 
-        ## Usage
+# Install dependencies
+pip install -r requirements.txt
 
-        ```bash
-        # Run full scrape (takes several hours for 78K+ parts)
-        python scraper.py
+# Install browser
+playwright install chromium
+```
 
-        # Resume an interrupted scrape
-        python scraper.py --resume
+## Usage
 
-        # Force full re-scrape (ignore existing data)
-        python scraper.py --full
+```bash
+# Run scraper
+python scraper.py
+```
 
-        # Show browser window while scraping
-        python scraper.py --visible
+### With Email Notifications (Local)
 
-        # Compare last two scrapes
-        python scraper.py --compare
-        ```
+```bash
+# Set environment variables for email
+export EMAIL_USER="your-email@gmail.com"
+export EMAIL_PASS="your-app-password"
+export EMAIL_TO="recipient@gmail.com"  # Optional, defaults to EMAIL_USER
 
-        ## Output
+python scraper.py
+```
 
-        Data is saved to `data/parts_scrape_YYYY-MM-DD.json`:
+## Email Setup (Gmail)
 
-        ```json
-        {
-          "scrape_date": "2024-01-15T10:30:00",
-          "total_products": 78199,
-          "products": {
-            "TP-C25-1SP2": {
-              "item_code": "TP-C25-1SP2",
-              "mfr_code": "TP-C25-1SP2",
-              "name": "TRADEPRO - Condenser Motor...",
-              "url": "https://www.carrierenterprise.com/product/...",
-              "first_seen": "2024-01-15T10:30:00"
-            }
-          }
-        }
-        ```
+To enable email notifications, you need a Gmail App Password:
 
-        ## Notes
+1. Go to [Google Account Security](https://myaccount.google.com/security)
+2. Enable 2-Step Verification if not already enabled
+3. Go to [App Passwords](https://myaccount.google.com/apppasswords)
+4. Select "Mail" and "Other (Custom name)"
+5. Enter "Carrier Scraper" and click Generate
+6. Copy the 16-character password (no spaces)
 
-        - Full scrape takes 3-5 hours depending on network speed
-        - - State is saved every 10 pages to `data/scrape_state.json`
-          - - Uses Playwright for reliable browser automation
-            - - Respects rate limits with built-in delays
+### GitHub Actions Setup
+
+Add these secrets to your repository (Settings > Secrets and variables > Actions):
+
+| Secret | Value |
+|--------|-------|
+| `EMAIL_USER` | `nikonadreau3.14@gmail.com` |
+| `EMAIL_PASS` | Your Gmail App Password |
+| `EMAIL_TO` | `nikonadreau3.14@gmail.com` (optional, defaults to EMAIL_USER) |
+
+## Automation
+
+The scraper runs automatically every Sunday at midnight UTC via GitHub Actions.
+
+To manually trigger a run:
+1. Go to Actions tab in your repository
+2. Select "Scrape Carrier Enterprise"
+3. Click "Run workflow"
+
+## Output Files
+
+| File | Description |
+|------|-------------|
+| `products.json` | Current products (always updated) |
+| `products_YYYY-MM-DD.json` | Date-stamped backup |
+| `report_YYYY-MM-DD.txt` | Text report of changes |
+
+### Sample Product Data
+
+```json
+{
+  "name": "2.5 Ton Up to 16 SEER2 Residential Air Conditioner",
+  "item_code": "GA5SAN43000W",
+  "mfr_code": "GA5SAN43000W",
+  "url": "https://www.carrierenterprise.com/product/1604089113546844",
+  "category": "Residential - Air Conditioners"
+}
+```
+
+## Categories Scraped
+
+**Residential (13 categories):**
+Air Conditioners, Boilers, Evaporator Coils, Fan Coils, Gas Furnaces, Generators, Geothermal, Heat Pumps, Oil Furnaces, Residential Accessories, Small Packaged, Wall Furnaces, Water Heaters
+
+**Commercial (7 categories):**
+Commercial Accessories, Indoor Packaged, Packaged Rooftops, Refrigeration, Split Systems, Thermostats Controls Zoning, VRF

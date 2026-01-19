@@ -2,8 +2,15 @@
 import json
 import time
 import os
+import sys
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 from playwright.sync_api import sync_playwright
+
+# Check for test mode
+TEST_MODE = "--test" in sys.argv
 
 BASE_URL = "https://www.carrierenterprise.com"
 
@@ -49,15 +56,21 @@ def scrape_page(page, url, max_retries=3):
             time.sleep(3)
     return []
 
-def scrape_category(page, category_name, category_id, products):
+def scrape_category(page, category_name, category_id, products, max_pages=None):
     print(f"\n{'='*50}")
     print(f"Scraping: {category_name}")
+    if max_pages:
+        print(f"(TEST MODE: max {max_pages} pages)")
     print(f"{'='*50}")
     page_num = 1
     category_count = 0
     consecutive_empty = 0
-    
+
     while True:
+        # In test mode, limit pages
+        if max_pages and page_num > max_pages:
+            print(f"  TEST MODE: Stopping at {max_pages} pages")
+            break
         url = f"{BASE_URL}/search?f=%7B%22category%22%3A%22{category_id}%22%7D&inventory=all&page={page_num}&pageSize=48&query=*"
         print(f"  Page {page_num}...")
         items = scrape_page(page, url)
@@ -111,7 +124,12 @@ def scrape_category(page, category_name, category_id, products):
 
 def get_previous_file(current_filename):
     """Find the most recent products file that's not the current one"""
-    files = [f for f in os.listdir('.') if f.startswith('products_') and f.endswith('.json')]
+    # In test mode, only compare with other test files
+    if TEST_MODE:
+        files = [f for f in os.listdir('.') if f.startswith('products_test_') and f.endswith('.json')]
+    else:
+        # In normal mode, exclude test files
+        files = [f for f in os.listdir('.') if f.startswith('products_') and f.endswith('.json') and '_test_' not in f]
     files.sort(reverse=True)
     for f in files:
         if f != current_filename:
@@ -167,13 +185,189 @@ def generate_report(changes, new_count, date_str):
     report.append("=" * 60)
     return "\n".join(report)
 
+
+def generate_html_email(changes, new_count, date_str):
+    """Generate a nicely formatted HTML email for new products"""
+    added = changes.get('added', [])
+    removed = changes.get('removed', [])
+    old_count = changes.get('old_count', 0)
+
+    # Group new products by category
+    by_category = {}
+    for p in added:
+        cat = p.get('category', 'Unknown')
+        if cat not in by_category:
+            by_category[cat] = []
+        by_category[cat].append(p)
+
+    html = f"""
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {{ font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }}
+        h1 {{ color: #0066cc; border-bottom: 2px solid #0066cc; padding-bottom: 10px; }}
+        h2 {{ color: #333; margin-top: 30px; }}
+        h3 {{ color: #0066cc; margin-top: 20px; border-left: 4px solid #0066cc; padding-left: 10px; }}
+        .summary {{ background: #f5f5f5; padding: 15px; border-radius: 8px; margin: 20px 0; }}
+        .summary-item {{ display: inline-block; margin-right: 30px; }}
+        .number {{ font-size: 24px; font-weight: bold; color: #0066cc; }}
+        .label {{ color: #666; font-size: 12px; }}
+        .product {{ background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 12px; margin: 10px 0; }}
+        .product-name {{ font-weight: bold; color: #333; margin-bottom: 5px; }}
+        .product-details {{ color: #666; font-size: 13px; }}
+        .product a {{ color: #0066cc; text-decoration: none; }}
+        .product a:hover {{ text-decoration: underline; }}
+        .badge {{ display: inline-block; background: #28a745; color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 10px; }}
+        .badge-removed {{ background: #dc3545; }}
+        .category-count {{ color: #666; font-size: 14px; }}
+        .footer {{ margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #999; font-size: 12px; }}
+    </style>
+</head>
+<body>
+    <h1>🔧 Carrier Enterprise Weekly Report</h1>
+    <p style="color: #666;">Report generated on {date_str}</p>
+
+    <div class="summary">
+        <div class="summary-item">
+            <div class="number">{new_count:,}</div>
+            <div class="label">Total Products</div>
+        </div>
+        <div class="summary-item">
+            <div class="number" style="color: #28a745;">+{len(added):,}</div>
+            <div class="label">New This Week</div>
+        </div>
+        <div class="summary-item">
+            <div class="number" style="color: #dc3545;">-{len(removed):,}</div>
+            <div class="label">Removed</div>
+        </div>
+        <div class="summary-item">
+            <div class="number">{new_count - old_count:+,}</div>
+            <div class="label">Net Change</div>
+        </div>
+    </div>
+"""
+
+    if added:
+        html += f"""
+    <h2>✨ New Products Added <span class="badge">{len(added)}</span></h2>
+"""
+        # Show products grouped by category
+        for category in sorted(by_category.keys()):
+            products = by_category[category]
+            html += f"""
+    <h3>{category} <span class="category-count">({len(products)} new)</span></h3>
+"""
+            # Limit to 10 products per category in email, with "and X more" message
+            display_products = products[:10]
+            for p in display_products:
+                html += f"""
+    <div class="product">
+        <div class="product-name"><a href="{p['url']}">{p['name']}</a></div>
+        <div class="product-details">
+            Item: <strong>{p['item_code']}</strong> | MFR: {p['mfr_code']}
+        </div>
+    </div>
+"""
+            if len(products) > 10:
+                html += f"""
+    <p style="color: #666; font-style: italic;">... and {len(products) - 10} more in {category}</p>
+"""
+    else:
+        html += """
+    <h2>No New Products This Week</h2>
+    <p>No new products were added since the last scrape.</p>
+"""
+
+    if removed:
+        html += f"""
+    <h2>🗑️ Products Removed <span class="badge badge-removed">{len(removed)}</span></h2>
+"""
+        for p in removed[:20]:
+            html += f"""
+    <div class="product" style="border-color: #dc3545;">
+        <div class="product-name" style="color: #dc3545;">{p['name']}</div>
+        <div class="product-details">
+            Item: <strong>{p['item_code']}</strong> | Category: {p['category']}
+        </div>
+    </div>
+"""
+        if len(removed) > 20:
+            html += f"""
+    <p style="color: #666; font-style: italic;">... and {len(removed) - 20} more removed</p>
+"""
+
+    html += """
+    <div class="footer">
+        <p>This report was automatically generated by the Carrier Enterprise Product Scraper.</p>
+        <p>Data source: <a href="https://www.carrierenterprise.com/part-finder">carrierenterprise.com/part-finder</a></p>
+    </div>
+</body>
+</html>
+"""
+    return html
+
+
+def send_email_report(changes, new_count, date_str, text_report):
+    """Send email report of new products"""
+    email_user = os.environ.get('EMAIL_USER')
+    email_pass = os.environ.get('EMAIL_PASS')
+    email_to = os.environ.get('EMAIL_TO', email_user)
+
+    if not email_user or not email_pass:
+        print("Email credentials not configured. Skipping email notification.")
+        print("Set EMAIL_USER and EMAIL_PASS environment variables to enable email.")
+        return False
+
+    try:
+        msg = MIMEMultipart('alternative')
+        msg['Subject'] = f"🔧 Carrier Enterprise Report - {len(changes.get('added', []))} New Products ({date_str})"
+        msg['From'] = email_user
+        msg['To'] = email_to
+
+        # Plain text version
+        text_part = MIMEText(text_report, 'plain')
+        msg.attach(text_part)
+
+        # HTML version
+        html_content = generate_html_email(changes, new_count, date_str)
+        html_part = MIMEText(html_content, 'html')
+        msg.attach(html_part)
+
+        # Send via Gmail SMTP
+        print(f"Sending email report to {email_to}...")
+        with smtplib.SMTP('smtp.gmail.com', 587) as server:
+            server.starttls()
+            server.login(email_user, email_pass)
+            server.send_message(msg)
+
+        print(f"Email sent successfully to {email_to}")
+        return True
+    except Exception as e:
+        print(f"Failed to send email: {e}")
+        return False
+
+
 def scrape_all_products():
     products = []
+
+    # In test mode, only scrape 2 categories with 1 page each
+    if TEST_MODE:
+        print("\n" + "="*50)
+        print("TEST MODE ENABLED")
+        print("Scraping only 2 categories with 1 page each")
+        print("="*50)
+        categories_to_scrape = dict(list(CATEGORIES.items())[:2])
+        max_pages = 1
+    else:
+        categories_to_scrape = CATEGORIES
+        max_pages = None
+
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
-        for category_name, category_id in CATEGORIES.items():
-            count = scrape_category(page, category_name, category_id, products)
+        for category_name, category_id in categories_to_scrape.items():
+            count = scrape_category(page, category_name, category_id, products, max_pages=max_pages)
             print(f"  {category_name}: {count} products")
             with open("products.json", "w") as f:
                 json.dump(products, f, indent=2)
@@ -182,7 +376,10 @@ def scrape_all_products():
 
     # Save dated file
     date_str = datetime.now().strftime("%Y-%m-%d")
-    dated_filename = f"products_{date_str}.json"
+    if TEST_MODE:
+        dated_filename = f"products_test_{date_str}.json"
+    else:
+        dated_filename = f"products_{date_str}.json"
     with open(dated_filename, "w") as f:
         json.dump(products, f, indent=2)
     
@@ -197,7 +394,10 @@ def scrape_all_products():
     
     # Generate report
     report = generate_report(changes, len(products), date_str)
-    report_filename = f"report_{date_str}.txt"
+    if TEST_MODE:
+        report_filename = f"report_test_{date_str}.txt"
+    else:
+        report_filename = f"report_{date_str}.txt"
     with open(report_filename, "w") as f:
         f.write(report)
     
@@ -207,8 +407,28 @@ def scrape_all_products():
     print(f"Report: {report_filename}")
     print(f"{'='*50}")
     print(report)
-    
+
+    # Send email notification
+    send_email_report(changes, len(products), date_str, report)
+
     return products
 
 if __name__ == "__main__":
-    scrape_all_products()
+    if "--help" in sys.argv or "-h" in sys.argv:
+        print("""
+Carrier Enterprise Product Scraper
+
+Usage:
+  python scraper.py           Full scrape (all categories, all pages)
+  python scraper.py --test    Test mode (2 categories, 1 page each)
+
+Environment variables for email:
+  EMAIL_USER    Gmail address to send from
+  EMAIL_PASS    Gmail App Password (not your regular password!)
+  EMAIL_TO      Recipient email (defaults to EMAIL_USER)
+
+Test mode creates separate files (products_test_*.json) so you can
+run it multiple times to verify the comparison and email work.
+""")
+    else:
+        scrape_all_products()

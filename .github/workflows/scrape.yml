@@ -6,10 +6,10 @@ on:
     - cron: '0 0 * * 0'
   workflow_dispatch:
     inputs:
-      send_email:
-        description: 'Send email report'
+      test_mode:
+        description: 'Test mode (quick run with 2 categories)'
         required: false
-        default: 'true'
+        default: false
         type: boolean
 
 jobs:
@@ -37,16 +37,20 @@ jobs:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
-        run: python scraper.py
+        run: |
+          if [ "${{ inputs.test_mode }}" == "true" ]; then
+            python scraper.py --test
+          else
+            python scraper.py
+          fi
 
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
           name: scrape-results-${{ github.run_number }}
           path: |
-            products.json
-            products_*.json
-            report_*.txt
+            products*.json
+            report*.txt
 
       - name: Commit and push results
         run: |

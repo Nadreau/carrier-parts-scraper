@@ -1,0 +1,39 @@
+============================================================
+CARRIER ENTERPRISE SCRAPE REPORT - 2026-01-26
+============================================================
+
+Total products scraped: 4946
+Previous count: 4936
+Net change: +10
+
+NEW PRODUCTS ADDED: 11
+----------------------------------------
+  + Carrier® Performance™ - 2.5 Ton Up to 16 SEER2 Residential A
+    Item: 24SPA630W003 | Category: Residential - Air Conditioners
+  + 2 Ton Up to 16 SEER2 Residential Air Conditioner Condensing 
+    Item: GA5SAN42400W | Category: Residential - Air Conditioners
+  + 4 Ton Residential Fan Coil Multipoise with InteliSense™ Tech
+    Item: FT4BNBC48L00 | Category: Residential - Fan Coils
+  + Toshiba Carrier TC Vertical AHU 36000 (R-410A)
+    Item: MMD-UP0361VHN-UL | Category: Residential - Fan Coils
+  + Carrier® Performance™ - 3 Ton Up to 17 SEER2 Residential 2-S
+    Item: 25TPA736A003 | Category: Residential - Heat Pumps
+  + Tutco - 81-21923-00 10 kW Electric Heater 240VAC Single Phas
+    Item: CECP129A00DPT | Category: Residential - Residential Accessories
+  + CECP130A00DPT - 81-21925-00 10kW Electric Heater 240-1
+    Item: CECP130A00DPT | Category: Residential - Residential Accessories
+  + CRLVHLGD042A00 - Louvered Hail Guard
+    Item: CRLVHLGD042A00 | Category: Commercial - Commercial Accessories
+  + MicroMetl - Curb Adapter - Welded Perimeter Constructed of G
+    Item: ADPT-0570-SDW | Category: Commercial - Commercial Accessories
+  + CRHEATER410A00 - 10kW Electric Heater Kit (208/230-3)
+    Item: CRHEATER410A00 | Category: Commercial - Commercial Accessories
+  + Bryant® Legacy™ - 8.5 Ton, 180,000 BTUH, Packaged Rooftop Ga
+    Item: 582KE09N180A2A0AA | Category: Commercial - Packaged Rooftops
+
+PRODUCTS REMOVED: 1
+----------------------------------------
+  - Lineset - 3/8" x 5/8" x 1/2" x 50' - Plain End Straight End
+    Item: LS-3/8X5/8X1/2X50 | Category: Residential - Residential Accessories
+
+============================================================

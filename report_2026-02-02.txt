@@ -1,0 +1,79 @@
+============================================================
+CARRIER ENTERPRISE SCRAPE REPORT - 2026-02-02
+============================================================
+
+Total products scraped: 4974
+Previous count: 4946
+Net change: +28
+
+NEW PRODUCTS ADDED: 30
+----------------------------------------
+  + Advanced Distributor Products - 3 Ton Multipoise Evaporator 
+    Item: CEP3617G349 | Category: Residential - Evaporator Coils
+  + 3.5 Ton Evaporator N Coil Cased Vertical Upflow / Downflow P
+    Item: CNPVP4217ALA | Category: Residential - Evaporator Coils
+  + 1.5 Ton Residential Fan Coil Multipoise R-410A (Aluminum Coi
+    Item: FJ4DNXA18L00 | Category: Residential - Fan Coils
+  + 2 Ton 14.3 SEER2 Residential Heat Pump Condensing Unit R-410
+    Item: GH5SAN42400A | Category: Residential - Heat Pumps
+  + Bryant® Legacy™ - 3.5 Ton 15 SEER Residential Heat Pump Cond
+    Item: 215BNA042P00 | Category: Residential - Heat Pumps
+  + Plugged Filter Indicator
+    Item: CRSTATUS002A00 | Category: Residential - Residential Accessories
+  + Condensing unit cover for side discharge unit. Gray PVC. Len
+    Item: 0239AP | Category: Residential - Residential Accessories
+  + GEO-COM-15KW-ELECTRIC-HEAT-KIT-R454B
+    Item: KWCEH0301B15 | Category: Residential - Residential Accessories
+  + GEO-COM-20KW-ELECTRIC-HEAT-KIT-R454B
+    Item: KWCEH0301N10 | Category: Residential - Residential Accessories
+  + GEO-COM-5KW-ELECTRIC-HEAT-KIT-R454B
+    Item: KWCEH0301B20 | Category: Residential - Residential Accessories
+  + GEO-COM-10KW-ELECTRIC-HEAT-KIT-R454B
+    Item: KWCEH0301N05 | Category: Residential - Residential Accessories
+  + Gas Conversion Kit, Natural-to-Propane
+    Item: AGAGC8NPS01C | Category: Residential - Residential Accessories
+  + Bryant®Preferred™ - 4 Ton 16 SEER2 115000 BTUH Residential 2
+    Item: 577ENWK48115 | Category: Residential - Small Packaged
+  + CRHEATER116B00 - 13.9 kW Electric Heater Kit (460V)
+    Item: CRHEATER116B00 | Category: Commercial - Commercial Accessories
+  + Curb Adapter
+    Item: Y03B-C01T PAR | Category: Commercial - Commercial Accessories
+  + 50 kW Electric Heater V5 016-024 (208/240-3)
+    Item: CAELHEAT025B00 | Category: Commercial - Commercial Accessories
+  + MicroMetl - Curb Adapter
+    Item: CAR-597-LNX-022-RTAP-16 | Category: Commercial - Commercial Accessories
+  + MicroMetl - Curb Adapter
+    Item: CAR-597-TRN-543-RTAP-19 | Category: Commercial - Commercial Accessories
+  + MicroMetl - Curb Adaptor with Duct Transition 48TJ007 to 48H
+    Item: CA-CAR-597-CAR-537-10 | Category: Commercial - Commercial Accessories
+  + Carrier® WeatherMaker® - 7.5 Ton Packaged Rooftop Gas Heat &
+    Item: 48FCEM08A2A1-0A0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 10 Ton Packaged Rooftop Gas Heat & 
+    Item: 48FEDM12A2B5-0A0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaster® - 6 Ton Packaged Rooftop Cooling Onl
+    Item: 50GEBN07C2Q5-0A0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 7.5 Ton Packaged Rooftop Gas Heat &
+    Item: 48FEFM08A2M1-8B0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 8.5 Ton Packaged Rooftop Gas Heat &
+    Item: 48FEFM09A2M1-8B0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 10 Ton Packaged Rooftop Gas Heat & 
+    Item: 48FCFM12L2Q5-3W1F0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 7.5 Ton Packaged Rooftop Gas Heat &
+    Item: 48FEFM08A3A1-8B0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® Gemini® - 7.5 Ton Commercial Heat Pump Condensing U
+    Item: 38AUQM08A0M5-0A0C0 | Category: Commercial - Split Systems
+  + Carrier® Gemini® - 12.5 Ton Commercial Air Cooled Condensing
+    Item: 38AUDT14A0M5-0A0A0 | Category: Commercial - Split Systems
+  + Carrier® - 33ZCFANCOL Fan Coil Zone Controller
+    Item: 33ZCFANCOL | Category: Commercial - Thermostats Controls Zoning
+  + Factory Authorized Parts™ - OPN-VAVB1 VAV Single Duct Zone C
+    Item: OPN-VAVB1 | Category: Commercial - Thermostats Controls Zoning
+
+PRODUCTS REMOVED: 2
+----------------------------------------
+  - Ductless 9,000/12,000 Btuh Heat Pump Indoor One Way Cassette
+    Item: 45MCCAQ12XA3 | Category: Residential - Fan Coils
+  - Ductless 36000 Btuh Slim Ducted Heat Pump Fan Coil Unit R-45
+    Item: 45MBDAQ36XH3 | Category: Residential - Fan Coils
+
+============================================================

@@ -1,0 +1,73 @@
+============================================================
+CARRIER ENTERPRISE SCRAPE REPORT - 2026-02-09
+============================================================
+
+Total products scraped: 5001
+Previous count: 4974
+Net change: +27
+
+NEW PRODUCTS ADDED: 28
+----------------------------------------
+  + Advanced Distributor Products - 4 Ton Evaporator Coil AL Ver
+    Item: CBV4817G1K | Category: Residential - Evaporator Coils
+  + Carrier® Performance™ - 1.5 Ton 14.3 SEER2 Residential Heat 
+    Item: 25SPA518A003 | Category: Residential - Heat Pumps
+  + Tutco - 81-21919-00 7.2 kW Electric Heater 240VAC Single Pha
+    Item: CECP127A00DPT | Category: Residential - Residential Accessories
+  + FC-3401F24 - 24kW Electric Heater Kit Fused (208/230) 1-3PH
+    Item: FC-3401F24 | Category: Residential - Residential Accessories
+  + Modine - 4" Horizontal Concentric Vent Kit
+    Item: *32161 | Category: Residential - Residential Accessories
+  + Reznor® - RZ269835 Conversion Kit - Natural Gas to LP for UD
+    Item: RZ269835 | Category: Residential - Residential Accessories
+  + Southwark - USB142224 USB Unit Support Box 14x22x24
+    Item: USB142224 | Category: Residential - Residential Accessories
+  + Reznor - UDAS60 V3 Series Gas-Fired Separated Combustion Uni
+    Item: REZ-UDAS60 | Category: Commercial - Commercial Accessories
+  + Reznor - V3 Series Model UDAS gas-fired separated combustion
+    Item: REZ-UDAS125 | Category: Commercial - Commercial Accessories
+  + CRHEATER117A00 - 10.4 kW Electric Heater Kit (208/230V)
+    Item: CRHEATER117A00 | Category: Commercial - Commercial Accessories
+  + Horizontal Economizer2 Kit for Installations
+    Item: CRECOMZR065B00 | Category: Commercial - Commercial Accessories
+  + Reznor V3 Series Model UDAP gas-fired unit heater 225,000 Bt
+    Item: UDAP225 | Category: Commercial - Commercial Accessories
+  + Reznor - V3 Series Model UDAS gas-fired separated combustion
+    Item: REZ-UDAS30 | Category: Commercial - Commercial Accessories
+  + Reznor - UDAS100 V3 Series Gas-Fired Unit Heater 100,000 BTU
+    Item: UDAS100 | Category: Commercial - Commercial Accessories
+  + Reznor V3 Series Model UDAS gas-fired separated combustion u
+    Item: UDAS225 | Category: Commercial - Commercial Accessories
+  + Carrier® Aquazone™ - 3 Ton Compact Water Source Heat Pump Ve
+    Item: 50WCE036FBA3BABA | Category: Commercial - Indoor Packaged
+  + Bryant® Legacy™ - 5 Ton 14 SEER Gas Heat Packaged Rooftop Un
+    Item: 582KP06A067A2A0AC | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaster® - 5 Ton Packaged Rooftop Gas Heat & 
+    Item: 48GEEM06A2A5-8M0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaster® - 6 Ton Packaged Rooftop Gas Heat & 
+    Item: 48GEEM07A2A5-8M0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 7.5 Ton Packaged Rooftop Gas Heat &
+    Item: 48FCDM08B2M5-6W3C0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 4 Ton Packaged Rooftop Gas Heat & E
+    Item: 48FCDA05J2M5-0A0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 7.5 Ton Packaged Rooftop Cooling On
+    Item: 50FC-N08A2M5-6U0A0 | Category: Commercial - Packaged Rooftops
+  + WeatherMaker® Single-Packaged Rooftop Units with EcoBlue™ Te
+    Item: 48FCDA06A1A5-0A0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 8.5 Ton Packaged Rooftop Gas Heat &
+    Item: 48FEFM09A3M1-8B0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 7.5 Ton Packaged Rooftop Gas Heat &
+    Item: 48FEFM08A3M1-8B0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 8.5 Ton Packaged Rooftop Gas Heat &
+    Item: 48FEFM09A3M5-8B0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 8.5 Ton Packaged Rooftop Gas Heat &
+    Item: 48FEFM09A3A1-8B0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 8.5 Ton Packaged Rooftop Gas Heat &
+    Item: 48FEFM09A3A5-8B0A0 | Category: Commercial - Packaged Rooftops
+
+PRODUCTS REMOVED: 1
+----------------------------------------
+  - Modine - 4" Horiz. Concentric Vent Kit
+    Item: 32161 | Category: Residential - Residential Accessories
+
+============================================================

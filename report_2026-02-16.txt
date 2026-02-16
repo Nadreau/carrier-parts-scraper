@@ -1,0 +1,99 @@
+============================================================
+CARRIER ENTERPRISE SCRAPE REPORT - 2026-02-16
+============================================================
+
+Total products scraped: 5043
+Previous count: 5001
+Net change: +42
+
+NEW PRODUCTS ADDED: 42
+----------------------------------------
+  + Advanced Distributor Products - Uncased A-Coil 5 Ton 15" R-4
+    Item: CDP60A20P | Category: Residential - Evaporator Coils
+  + 3 Ton Heat Pump Crossover System Fan Coil Unit R-454B (208/2
+    Item: 45MUHAQ36XX3 | Category: Residential - Fan Coils
+  + 2 Ton Heat Pump Crossover System Fan Coil Unit R-454B (208/2
+    Item: 45MUHAQ24XX3 | Category: Residential - Fan Coils
+  + 5 Ton Heat Pump Crossover System Fan Coil Unit R-454B (208/2
+    Item: 45MUHAQ60XX3 | Category: Residential - Fan Coils
+  + Crossover 24000 BTU Up to 17.4 SEER2 High Heat Capable Heat 
+    Item: 38MURAQ24AB3 | Category: Residential - Heat Pumps
+  + Crossover 36000 BTU Up to 15.8 SEER2 High Heat Capable Heat 
+    Item: 38MURAQ36AB3 | Category: Residential - Heat Pumps
+  + Crossover 30000 BTU Up to 16.2 SEER2 High Heat Capable Heat 
+    Item: 38MURAQ30AB3 | Category: Residential - Heat Pumps
+  + Crossover 18000 BTU Up to 18 SEER2 High Heat Capable Heat Pu
+    Item: 38MURAQ18AB3 | Category: Residential - Heat Pumps
+  + Crossover 36000 BTU Up to 16.9 SEER2 Heat Pump Condensing Un
+    Item: 38MURAQ36AA3 | Category: Residential - Heat Pumps
+  + Crossover 24000 BTU Up to 17 SEER2 Heat Pump Condensing Unit
+    Item: 38MURAQ24AA3 | Category: Residential - Heat Pumps
+  + Crossover 47000 BTU Up to 15.8 SEER2 Heat Pump Condensing Un
+    Item: 38MURAQ48AA3 | Category: Residential - Heat Pumps
+  + Crossover 36000 Btuh Heat Pump Condensing Unit R-454B (208/2
+    Item: 37MUHAQ36AA3 | Category: Residential - Heat Pumps
+  + Crossover 24000 Btuh Heat Pump Condensing Unit R-454B (208/2
+    Item: 37MUHAQ24AA3 | Category: Residential - Heat Pumps
+  + Crossover 30000 BTU Up to 17.3 SEER Heat Pump Condensing Uni
+    Item: 38MURAQ30AA3 | Category: Residential - Heat Pumps
+  + Crossover 18000 BTU Up to 16 SEER2 Heat Pump Condensing Unit
+    Item: 38MURAQ18AA3 | Category: Residential - Heat Pumps
+  + Crossover 48000 Btuh Heat Pump Condensing Unit R-454B (208/2
+    Item: 37MURAQ48AA3 | Category: Residential - Heat Pumps
+  + Crossover 36000 Btuh Heat Pump Condensing Unit R-454B (208/2
+    Item: 37MURAQ36AA3 | Category: Residential - Heat Pumps
+  + Crossover 55000 BTU Up to 15 SEER2 High Heat Capable Heat Pu
+    Item: 38MURAQ60AB3 | Category: Residential - Heat Pumps
+  + Crossover 30000 Btuh Heat Pump Condensing Unit R-454B (208/2
+    Item: 37MUHAQ30AA3 | Category: Residential - Heat Pumps
+  + Crossover 57000 BTU Up to 14.7 SEER2 Heat Pump Condensing Un
+    Item: 38MURAQ60AA3 | Category: Residential - Heat Pumps
+  + Crossover 24000 Btuh Heat Pump Condensing Unit R-454B (208/2
+    Item: 37MURAQ24AA3 | Category: Residential - Heat Pumps
+  + Crossover 18000 Btuh Heat Pump Condensing Unit R-454B (208/2
+    Item: 37MUHAQ18AA3 | Category: Residential - Heat Pumps
+  + Crossover 18000 Btuh Heat Pump Condensing Unit R-454B (208/2
+    Item: 37MURAQ18AA3 | Category: Residential - Heat Pumps
+  + Crossover 48000 Btuh Heat Pump Condensing Unit R-454B (208/2
+    Item: 37MUHAQ48AA3 | Category: Residential - Heat Pumps
+  + Crossover 30000 Btuh Heat Pump Condensing Unit R-454B (208/2
+    Item: 37MURAQ30AA3 | Category: Residential - Heat Pumps
+  + Crossover 60000 Btuh Heat Pump Condensing Unit R-454B (208/2
+    Item: 37MURAQ60AA3 | Category: Residential - Heat Pumps
+  + Crossover 60000 Btuh Heat Pump Condensing Unit R-454B (208/2
+    Item: 37MUHAQ60AA3 | Category: Residential - Heat Pumps
+  + Crossover 47000 BTU Up to 15.6 SEER2 High Heat Capable Heat 
+    Item: 38MURAQ48AB3 | Category: Residential - Heat Pumps
+  + Tutco - 81-21418-00 5 kW Electric Heater (230-1)
+    Item: CEFFM0502T | Category: Residential - Residential Accessories
+  + 40VM900002 - Non-Programmable Wired Remote Controller
+    Item: 40VM900002 | Category: Commercial - Commercial Accessories
+  + Cambridgeport Air Systems - Adapter Kit
+    Item: 1015136 | Category: Commercial - Commercial Accessories
+  + Modine Manufacturing Company - 53188 - Hds 30As0111Fban
+    Item: HDS 30AS0111FBAN | Category: Commercial - Commercial Accessories
+  + Carrier® WeatherMaker® - 15 Ton Packaged Rooftop Cooling Onl
+    Item: 50FC-M16A3A5-0A0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaster® - 8.5 Ton Commercial Packaged Roofto
+    Item: 48HCDD09K2M5-6U5G0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 12.5 Ton Packaged Rooftop Gas Heat 
+    Item: 48FCDM14K3M6-6U0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaster® - 12.5 Ton Commercial Packaged Rooft
+    Item: 48HCDD14K1M5-6U5G0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 7.5 Ton Packaged Rooftop Gas Heat &
+    Item: 48FCDM08J2M6-3A3A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 5 Ton 13.4 SEER2 Packaged Rooftop G
+    Item: 48FCSA06J1M6-2A3D0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 8.5 Ton Packaged Rooftop Gas Heat &
+    Item: 48TCDD09A2M6-0A0G0 | Category: Commercial - Packaged Rooftops
+  + Carrier® 25 Ton Commercial Air Cooled Condensing Unit R-410A
+    Item: 38AUDT28A0A5-0A0A0 | Category: Commercial - Split Systems
+  + 40VM900002 - Non-Programmable Wired Remote Controller
+    Item: 40VM900002 | Category: Commercial - Thermostats Controls Zoning
+  + Carrier - CO2 Duct 0-2KPPM
+    Item: NSA-A/CO2-DUCT | Category: Commercial - Thermostats Controls Zoning
+
+PRODUCTS REMOVED: 0
+----------------------------------------
+
+============================================================

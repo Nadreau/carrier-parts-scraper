@@ -1,0 +1,59 @@
+============================================================
+CARRIER ENTERPRISE SCRAPE REPORT - 2026-02-23
+============================================================
+
+Total products scraped: 5065
+Previous count: 5043
+Net change: +22
+
+NEW PRODUCTS ADDED: 22
+----------------------------------------
+  + Bryant® Legacy™ - 3 Ton 13.4 SEER2 Air Conditioner Condensin
+    Item: 134SAE03600N | Category: Residential - Air Conditioners
+  + Bryant® Legacy™ - 4 Ton 13.4 SEER2 Air Conditioner Condensin
+    Item: 134SAP04800N | Category: Residential - Air Conditioners
+  + Bryant® Legacy™ - 4 Ton 13.4 SEER2 Air Conditioner Condensin
+    Item: 134SAE04800N | Category: Residential - Air Conditioners
+  + Bryant® Legacy™ - 5 Ton 13.4 SEER2 Air Conditioner Condensin
+    Item: 134SAE06000N | Category: Residential - Air Conditioners
+  + Bryant® Legacy™ - 3 Ton 13.4 SEER2 Air Conditioner Condensin
+    Item: 134SAP03600N | Category: Residential - Air Conditioners
+  + Bryant® Legacy™ - 5 Ton 13.4 SEER2 Air Conditioner Condensin
+    Item: 134SAP06000N | Category: Residential - Air Conditioners
+  + 7.5T Dual Circuit R410A Upflow Coil
+    Item: ABM96-3Y74E+V(50/50)R410 | Category: Residential - Fan Coils
+  + Bryant® Legacy™ - 5 Ton Up to 15 SEER2 Heat Pump Condensing 
+    Item: 235SAP06000A | Category: Residential - Heat Pumps
+  + Bryant® Legacy™ - 3 Ton Up to 16 SEER2 Heat Pump Condensing 
+    Item: 235SAE03600A | Category: Residential - Heat Pumps
+  + Bryant® Legacy™ - 4 Ton Up to 15.5 SEER2 Heat Pump Condensin
+    Item: 235SAP04800A | Category: Residential - Heat Pumps
+  + Bryant® Legacy™ - 5 Ton Up to 15 SEER2 Heat Pump Condensing 
+    Item: 235SAE06000A | Category: Residential - Heat Pumps
+  + Bryant® Legacy™ - 3 Ton Up to 15.5 SEER2 Heat Pump Condensin
+    Item: 235SAP03600A | Category: Residential - Heat Pumps
+  + Bryant® Legacy™ - 4 Ton Up to 15.2 SEER2 Heat Pump Condensin
+    Item: 235SAE04800A | Category: Residential - Heat Pumps
+  + 2 Row Hot Water Coil for 40RUA 14-25 Ton and 40RUS 14-25 Ton
+    Item: CAHWCOIL002A00 | Category: Residential - Residential Accessories
+  + CPHEATER132A02 - 20kW Electric Heater Kit w/Circuit Breaker 
+    Item: CPHEATER132A02 | Category: Residential - Residential Accessories
+  + CPHEATER126A02LC - 5kW Electric Heater Kit, Breaker, LC (240
+    Item: CPHEATER126A02LC | Category: Residential - Residential Accessories
+  + Bryant® Legacy™ - 3 Ton Residential Packaged Heat Pump Unit 
+    Item: 607CNXK36000 | Category: Residential - Small Packaged
+  + 2 Row Hot Water Coil for 40RUA 14-25 Ton and 40RUS 14-25 Ton
+    Item: CAHWCOIL002A00 | Category: Commercial - Commercial Accessories
+  + Modine Manufacturing Company - 32162
+    Item: 32162 | Category: Commercial - Commercial Accessories
+  + Carrier® WeatherMaker® - 20 Ton Packaged Rooftop Gas Heat & 
+    Item: 48FCFM24A3A5-8W0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® Gemini® - 30 Ton Packaged Air Handling Unit R-454B 
+    Item: 40RLAA30T1A5-UA0A0 | Category: Commercial - Split Systems
+  + Belimo - ECON-ZIP-BASE ZIP Economizer Base Unit
+    Item: 9800206 | Category: Commercial - Thermostats Controls Zoning
+
+PRODUCTS REMOVED: 0
+----------------------------------------
+
+============================================================

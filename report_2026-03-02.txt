@@ -1,0 +1,43 @@
+============================================================
+CARRIER ENTERPRISE SCRAPE REPORT - 2026-03-02
+============================================================
+
+Total products scraped: 5079
+Previous count: 5065
+Net change: +14
+
+NEW PRODUCTS ADDED: 14
+----------------------------------------
+  + 2 Ton Residential Fan Coil Multipoise R-410A (Aluminum Coil)
+    Item: PF4MNXB24L00 | Category: Residential - Fan Coils
+  + 1.5 - 3 Ton Residential Fan Coil Communicating Variable-Spee
+    Item: FE4ANF002L00 | Category: Residential - Fan Coils
+  + CRHEATER270A00 - Single Package Rooftop Units Electric Heate
+    Item: CRHEATER270A00 | Category: Residential - Residential Accessories
+  + CRHEATER108A00 - 11.5 kW Electric Heater Kit (460V)
+    Item: CRHEATER108A00 | Category: Commercial - Commercial Accessories
+  + Carrier - Power Exhaust Fan and Motor
+    Item: CRPWREXH033A00 | Category: Commercial - Commercial Accessories
+  + CALOWAMB038A00 - Motormaster I Head Pressure Controller
+    Item: CALOWAMB038A00 | Category: Commercial - Commercial Accessories
+  + CRHEATER266A00 - 11.5 kW Electric Heater (460-3-60)
+    Item: CRHEATER266A00 | Category: Commercial - Commercial Accessories
+  + CRHEATER102A00 - 6.5 kW Electric Heater Kit (208/230V)
+    Item: CRHEATER102A00 | Category: Commercial - Commercial Accessories
+  + Accessory Electric Heater, 10Kw (480-3)
+    Item: CPHEATER061B00 | Category: Commercial - Commercial Accessories
+  + Carrier® WeatherMaker® - 4 Ton Packaged Rooftop Cooling Only
+    Item: 50FC-A05A2A6-0A0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 20 Ton Packaged Rooftop Gas Heat & 
+    Item: 48FEEM24A2A5-0A0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 4 Ton Packaged Rooftop Gas Heat & E
+    Item: 48FEFA05A2M1-8B0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® Gemini® - 20 Ton Commercial Air Cooled Condensing U
+    Item: 38AUZA25A0A5-0A0A0 | Category: Commercial - Split Systems
+  + Carrier® Gemini® - 15 Ton Commercial Air Cooled Condensing U
+    Item: 38AUDT16A0A6-0A0A0 | Category: Commercial - Split Systems
+
+PRODUCTS REMOVED: 0
+----------------------------------------
+
+============================================================

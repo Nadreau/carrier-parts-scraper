@@ -1,0 +1,41 @@
+============================================================
+CARRIER ENTERPRISE SCRAPE REPORT - 2026-03-09
+============================================================
+
+Total products scraped: 5082
+Previous count: 5079
+Net change: +3
+
+NEW PRODUCTS ADDED: 8
+----------------------------------------
+  + Advanced Distributor Products - 4 ton LH uncased Orifice cop
+    Item: HE25148A200A0004AP | Category: Residential - Evaporator Coils
+  + ADP 2 Ton B series Multi-Position and Hydronic Multi-positio
+    Item: 7781090B | Category: Residential - Fan Coils
+  + 5 Ton Geothermal Heat Pump Vertical Top Discharge Right Retu
+    Item: GCA60VTRNDET1DX1 | Category: Residential - Geothermal
+  + Carrier® Infinity® - 2 Ton 24 SEER Residential Variable Spee
+    Item: 25VNA424A003 | Category: Residential - Heat Pumps
+  + Remote Control Assembly with Single Gang Cover Plate - White
+    Item: MSR-50RM/W | Category: Commercial - Commercial Accessories
+  + Carrier® WeatherMaker® - 8.5 Ton Packaged Rooftop Gas Heat &
+    Item: 48FCEM09A3A1-6B1C0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 7.5 Ton Packaged Rooftop Gas Heat &
+    Item: 48FCEM08A3A1-6B1C0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaker® - 8.5 Ton Packaged Rooftop Gas Heat &
+    Item: 48FCEM09A2A1-6B1C0 | Category: Commercial - Packaged Rooftops
+
+PRODUCTS REMOVED: 5
+----------------------------------------
+  - TRADEPRO® - 4" x 1" Condenser Tie Down Hurricane Bracket 4/P
+    Item: TP-BMT-D04 | Category: Residential - Residential Accessories
+  - BMP - 4" x 1" Condenser Tie Down Hurricane Bracket 4/PK
+    Item: BMTD04 | Category: Residential - Residential Accessories
+  - BMP - 6" x 1" Condenser Tie Down Hurricane Bracket 4/PK
+    Item: TT-BMTD0606 | Category: Residential - Residential Accessories
+  - BMP - 6" x 2" Fat Cat Condenser Tie Down Hurricane Bracket 4
+    Item: BMTD062 | Category: Residential - Residential Accessories
+  - BMP - 8" x 1" Condenser Tie Down Hurricane Bracket 4/PK
+    Item: BMTD08 | Category: Residential - Residential Accessories
+
+============================================================

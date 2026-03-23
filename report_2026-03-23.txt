@@ -1,0 +1,192 @@
+============================================================
+CARRIER ENTERPRISE SCRAPE REPORT - 2026-03-23
+============================================================
+
+Total products scraped: 4769
+Previous count: 5082
+Net change: -313
+
+NEW PRODUCTS ADDED: 38
+----------------------------------------
+  + Carrier® Performance™ - 3 Ton Up to 17 SEER2 2-Stage Air Con
+    Item: 24TPB736W003 | Category: Residential - Air Conditioners
+  + Carrier® Infinity® - 4 Ton 19 SEER Residential Variable Spee
+    Item: 24VNA948A003 | Category: Residential - Air Conditioners
+  + Bryant® Legacy™ - 2.5 Ton Up to 16.5 SEER2 Coastal Residenti
+    Item: 135SAN030C0W | Category: Residential - Air Conditioners
+  + Carrier® Comfort™ - 4 Ton Up To 15.2 SEER2 Air Conditioner C
+    Item: 26SCA448N013 | Category: Residential - Air Conditioners
+  + Bryant® Legacy™ - 4 Ton 13.4 SEER2 Air Conditioner Condensin
+    Item: 134SAN04801N | Category: Residential - Air Conditioners
+  + 4 Ton Up to 15.2 SEER2 Air Conditioner Condenser Unit R-454B
+    Item: GA4SAN54801N | Category: Residential - Air Conditioners
+  + 2 Ton w/ 5 kW Heat Apartment Fan Coil Unit (R-454B)
+    Item: FMA5L2405AL | Category: Residential - Fan Coils
+  + Toshiba Carrier - Vertical AHU R-454B 36K BTU
+    Item: MMD-UB0361VHN-UL | Category: Residential - Fan Coils
+  + 4 Ton 14.3 SEER2 Residential Heat Pump Condensing Unit (R-45
+    Item: GH5SAN54801A | Category: Residential - Heat Pumps
+  + Carrier® Performance™ - 5 Ton Up To 17 SEER2 Residential Hea
+    Item: 27VPA960A003 | Category: Residential - Heat Pumps
+  + Carrier® Performance™ - 2 Ton Up To 19 SEER2 Residential Hea
+    Item: 27VPA924A003 | Category: Residential - Heat Pumps
+  + Carrier® Performance™ - 3 Ton Up To 17 SEER2 Residential Hea
+    Item: 27VPA936A003 | Category: Residential - Heat Pumps
+  + Carrier® Performance™ - 4 Ton Up To 19 SEER2 Residential Hea
+    Item: 27VPA948A003 | Category: Residential - Heat Pumps
+  + Bryant® Legacy™ - 4 Ton Up to 15.5 SEER2 Residential Heat Pu
+    Item: 235SAN04801A | Category: Residential - Heat Pumps
+  + Bryant® Legacy™ - 4 Ton Up to 15.5 SEER2 Coastal Residential
+    Item: 235SAN048C1A | Category: Residential - Heat Pumps
+  + 4 Ton Up To 15.5 SEER2 Residential Heat Pump Condensing Unit
+    Item: PH5SAN54801A | Category: Residential - Heat Pumps
+  + 4 Ton Up to 15.2 SEER2 Residential Air Conditioner Condensin
+    Item: PA4SAN54801N | Category: Residential - Heat Pumps
+  + Bryant® Preferred™ - 2 Ton Up To 19 SEER2 Residential Heat P
+    Item: 249VAN02400A | Category: Residential - Heat Pumps
+  + Bryant® Preferred™ - 5 Ton Up To 17 SEER2 Residential Heat P
+    Item: 249VAN06000A | Category: Residential - Heat Pumps
+  + Bryant® Preferred™ - 4 Ton Up To 19 SEER2 Residential Heat P
+    Item: 249VAN04800A | Category: Residential - Heat Pumps
+  + Bryant® Preferred™ - 3 Ton Up To 17 SEER2 Residential Heat P
+    Item: 249VAN03600A | Category: Residential - Heat Pumps
+  + AHK1252 - 1 1/4" 24" Water Source Heat Pump Hose Kit
+    Item: AHK1252 | Category: Residential - Residential Accessories
+  + Warren - 6KW 460/3PH Electric Heater
+    Item: WDJS0605 | Category: Residential - Residential Accessories
+  + KSALN0150CAC - Carrier Plastic Logo
+    Item: KSALN0150CAC | Category: Residential - Residential Accessories
+  + Heater 10kW 208/240V 3 Phase Non Fused
+    Item: FC-1201310 | Category: Residential - Residential Accessories
+  + Gas Conversion Kit Natural-to-Propane for Standing Pilot and
+    Item: KGANP2801F80 | Category: Residential - Residential Accessories
+  + Carrier® Comfort™ - 3 Ton 13.4 SEER2 90000 BTUH Packaged Gas
+    Item: 48NL-B360905 | Category: Residential - Small Packaged
+  + CRECOMZR066A01 - Ultra Low Leak Vertical Economizer 2
+    Item: CRECOMZR066A01 | Category: Commercial - Commercial Accessories
+  + AHK1252 - 1 1/4" 24" Water Source Heat Pump Hose Kit
+    Item: AHK1252 | Category: Commercial - Commercial Accessories
+  + CRHEATER112A00 - Commercial Electric Heater Kit 32 kW 208/23
+    Item: CRHEATER112A00 | Category: Commercial - Commercial Accessories
+  + CRHEATER279A00 - 25 kW Electric Heater Kit (208/230V)
+    Item: CRHEATER279A00 | Category: Commercial - Commercial Accessories
+  + 15.0 kW 575-3-60 Electric Heater
+    Item: CAELHEAT057A00 | Category: Commercial - Commercial Accessories
+  + Carrier® WeatherMaster® - 7.5 Ton Packaged Rooftop Gas Heat 
+    Item: 48GEEM08A2A5-8M0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaster® - 12.5 Ton Packaged Rooftop Gas Heat
+    Item: 48GEEM14A2A5-8M0A0 | Category: Commercial - Packaged Rooftops
+  + Carrier® WeatherMaster® - 10 Ton Packaged Rooftop Gas Heat &
+    Item: 48GEEM12A2A5-8M0A0 | Category: Commercial - Packaged Rooftops
+  + PRE-ASSEMBLED WITH ESP+
+    Item: KLP106MA-S1D-ESTM81 | Category: Commercial - Refrigeration
+  + Carrier® Gemini® - 12.5 Ton Commercial Air Cooled Condensing
+    Item: 38AUZM14A0B5-0A0A0 | Category: Commercial - Split Systems
+  + Factory Authorized Part™- HH97ZX001 Low Temp Sensor A2L
+    Item: HH97ZX001 | Category: Commercial - Thermostats Controls Zoning
+
+PRODUCTS REMOVED: 351
+----------------------------------------
+  - Carrier® Comfort™ - 80% AFUE 70000 BTUH Multi-Speed ECM, Mul
+    Item: 58SC0B070M17--12 | Category: Residential - Gas Furnaces
+  - Carrier® Performance™ 96% AFUE 60000 BTUH 2-Stage, Variable 
+    Item: 59TP6C060V17--16 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 80% AFUE 90000 BTUH Multi-Speed ECM, Mul
+    Item: 58SC0B090M21--20 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 80% AFUE 90000 BTUH Multi-Speed Multipoi
+    Item: 58SC0B090M21--16 | Category: Residential - Gas Furnaces
+  - Carrier® Performance™ 96% AFUE 80000 BTUH 2-Stage, Variable 
+    Item: 59TP6C080V17--16 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 92% AFUE 60000 BTUH Single Stage ECM Mul
+    Item: 59SC2E060M17--14 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 80% AFUE 70000 BTUH Multi-Speed Multipoi
+    Item: 58SB0B070M17--12 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 80% AFUE 70000 BTUH Multi-Speed ECM, Mul
+    Item: 58SC0B070M21--16 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 80% AFUE 45000 BTUH Multi-Speed ECM, Mul
+    Item: 58SC0B045M14--12 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 96% AFUE 60000 BTUH Single Stage Multipo
+    Item: 59SC6A060M17--16 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 80% AFUE 110000 BTUH Multi-Speed ECM, Mu
+    Item: 58SC0B110M21--20 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 92% AFUE 80000 BTUH Single Stage ECM Mul
+    Item: 59SC2E080M21--20 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 96% AFUE 40000 BTUH Single Stage Multipo
+    Item: 59SC6A040M14--10 | Category: Residential - Gas Furnaces
+  - Carrier® Performance™ 96% AFUE 100000 BTUH 2-Stage, Variable
+    Item: 59TP6C100V21--20 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 80% AFUE 45000 BTUH Multi-Speed Multipoi
+    Item: 58SB0B045M14--12 | Category: Residential - Gas Furnaces
+  - Bryant® - 80% AFUE 70000 BTUH Multi 18-Speed ECM, Multipoise
+    Item: 800SB36070M17 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 92% AFUE 80000 BTUH Single Stage ECM Mul
+    Item: 59SC2E080M17--16 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ 80% AFUE 70000 Btuh Multi-Speed Multipoise
+    Item: 58SB0B070M14--12 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 80% AFUE 90000 BTUH Multi-Speed Multipoi
+    Item: 58SB0B090M17--14 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 96% AFUE 80000 BTUH Single Stage Multipo
+    Item: 59SC6A080M17--16 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 96% AFUE 40000 BTUH Single Stage Multipo
+    Item: 59SC6A040M17--12 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 96% AFUE 80000 BTUH Single Stage Multipo
+    Item: 59SC6A080M21--20 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ 80% AFUE 90000 Btuh Multi-Speed Multipoise
+    Item: 58SB0B090M21--16 | Category: Residential - Gas Furnaces
+  - Carrier® Performance™ 96% AFUE 80000 BTUH 2-Stage, Variable 
+    Item: 59TP6C080V21--20 | Category: Residential - Gas Furnaces
+  - Payne® - Up to 96.3% AFUE 60000 BTUH Two-Stage 4-Way Multipo
+    Item: PG96VTAB48060B | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 92% AFUE 40000 BTUH Single Stage ECM Mul
+    Item: 59SC2E040M17--12 | Category: Residential - Gas Furnaces
+  - Carrier® Performance™ 96% AFUE 40000 BTUH 2-Stage, Variable 
+    Item: 59TP6C040V14--10 | Category: Residential - Gas Furnaces
+  - Bryant® Preferred™ - Up to 96.3% AFUE 60000 BTUH 4-Way Multi
+    Item: 926TC48060V17 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 96% AFUE 100000 BTUH Single Stage Multip
+    Item: 59SC6A100M21--20 | Category: Residential - Gas Furnaces
+  - Carrier® Performance™ - 80% AFUE 90000 BTUH Two-Stage, Varia
+    Item: 58TP0B090V21--20 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 80% AFUE 70000 BTUH Multi-Speed ECM, Mul
+    Item: 58SC0B070M14--12 | Category: Residential - Gas Furnaces
+  - Carrier® Infinity® 80% AFUE 90000 Btuh Two-Stage, Variable-S
+    Item: 58TN0B090C21--20 | Category: Residential - Gas Furnaces
+  - Bryant® - 80% AFUE 90000 BTUH Multi 18-Speed ECM, Multipoise
+    Item: 800SB42090M17 | Category: Residential - Gas Furnaces
+  - Carrier® Performance™ 96% AFUE 40000 BTUH 2-Stage, Variable 
+    Item: 59TP6C040V17--12 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 92% AFUE 100000 BTUH Single Stage Multip
+    Item: 59SC2E100M21--20 | Category: Residential - Gas Furnaces
+  - Bryant® - 80% AFUE 70000 BTUH Multi 18-Speed ECM, Multipoise
+    Item: 800SB36070M14 | Category: Residential - Gas Furnaces
+  - Bryant® Legacy™ - 96% AFUE 80000 BTUH Multi-Speed ECM Multip
+    Item: 916SA48080M17 | Category: Residential - Gas Furnaces
+  - Bryant® Preferred™ - Up to 96.2% AFUE 80000 BTUH 4-Way Multi
+    Item: 926TC48080V17 | Category: Residential - Gas Furnaces
+  - Bryant® Legacy™ - 96% AFUE 60000 BTUH Multi-Speed ECM Multip
+    Item: 916SA48060M17 | Category: Residential - Gas Furnaces
+  - Carrier® Infinity® 80% AFUE 90000 Btuh Two-Stage, Variable-S
+    Item: 58TN0B090C17--16 | Category: Residential - Gas Furnaces
+  - Payne® - 96% AFUE 60000 BTUH ECM Condensing Gas Furnace
+    Item: PG96MSAA48060B | Category: Residential - Gas Furnaces
+  - Carrier® Performance™ 96% AFUE 60000 BTUH 2-Stage, Variable 
+    Item: 59TP6C060V14--12 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 96% AFUE 60000 BTUH Single Stage Multipo
+    Item: 59SC6A060M14--12 | Category: Residential - Gas Furnaces
+  - Bryant® Legacy™ - 80% AFUE 70000 BTUH Multi-Speed ECM, Multi
+    Item: 810SB36070M17 | Category: Residential - Gas Furnaces
+  - Carrier® Performance™ - 80% AFUE 70000 BTUH 4-Way Multipoise
+    Item: 58SP0B070V17--16 | Category: Residential - Gas Furnaces
+  - Carrier® Performance™ - 80% AFUE 90000 BTUH 4-Way Multipoise
+    Item: 58SP0B090V21--20 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 92% AFUE 40000 BTUH Single Stage ECM Mul
+    Item: 59SC2E040M14--12 | Category: Residential - Gas Furnaces
+  - Carrier® Comfort™ - 80% AFUE 90000 BTUH Multi-Speed Multipoi
+    Item: 58SC0B090M17--14 | Category: Residential - Gas Furnaces
+  - Bryant® - 80% AFUE 90000 BTUH Multi 18-Speed ECM, Multipoise
+    Item: 800SB48090M21 | Category: Residential - Gas Furnaces
+  - Carrier® Performance™ - 80% AFUE 70000 BTUH Two-Stage, Varia
+    Item: 58TP0B070V17--16 | Category: Residential - Gas Furnaces
+  ... and 301 more
+
+============================================================
